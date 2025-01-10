@@ -116,3 +116,37 @@ To start the Streamlit app, run the following command:
   ```bash
   streamlit run app.py
   ```
+
+  ---
+
+  ## Using NameWiz
+
+  Once you have the app running, you can start generating creative names by configuring the following options:
+
+1. **Enter Keywords**
+   - Provide one or more keywords that represent your idea.
+   - Keywords can be separated by any non-alphanumeric symbol (e.g., `table,fashion|cats`).
+
+2. **Select a Category**
+   - Choose a category that best fits your idea (e.g., Tech Startup, Food, Travel).
+   - Categories help refine the generated names to match your theme.
+
+3. **Number of Names**
+   - Use the slider to specify how many names you want to generate (1–10).
+
+4. **Select a Tone**
+   - Pick a tone for the names, such as:
+     - Professional
+     - Fun/Playful
+     - Modern/Minimalist
+     - Luxury/High-End
+
+5. **Choose a Language**
+   - Select from popular languages, such as English, Spanish, French, or others.
+   - The app will generate names in the chosen language.
+
+6. **Generate Names**
+   - Click the **Generate Names** button to see the results.
+   - The app will display a list of creative names based on your inputs.
+
+Enjoy exploring unique and tailored names for your project or business!

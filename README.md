@@ -4,6 +4,9 @@
 
 Explore the live demo: [NameWiz](https://olgazju-namewiz-app-iwfyt2.streamlit.app/).
 
+<img width="838" alt="image" src="https://github.com/user-attachments/assets/22db953b-8265-45a1-a302-33a29ea4c125" />
+
+
 ---
 
 ## Requirements

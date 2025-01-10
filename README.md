@@ -2,6 +2,8 @@
 
 🚀 **NameWiz** is a simple and fun Streamlit app to generate creative names for your startup, business, or project.
 
+Explore the live demo: [NameWiz](https://olgazju-namewiz-app-iwfyt2.streamlit.app/).
+
 ---
 
 ## Requirements
@@ -82,6 +84,26 @@ cd namewiz
   ```bash
   pre-commit run --all-files
   ```
+
+  #### Create a `.env` File
+
+  To securely store environment variables, create a `.env` file in the root directory of the project. Add the following content to the `.env` file:
+
+  ```plaintext
+  GITHUB_TOKEN=your_github_token_here
+  ```
+
+  #### Obtain a GitHub Token
+
+  To obtain a GitHub token, follow these steps:
+
+  1. Go to [GitHub Settings](https://github.com/settings/tokens).
+  2. Click on **Generate new token**.
+  3. Select the scopes or permissions you need for your token.
+  4. Click **Generate token**.
+  5. Copy the generated token and paste it into your `.env` file as shown above.
+
+  Make sure to keep your token secure and do not share it publicly.
 
 </details>
 

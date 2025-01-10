@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import re
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -14,9 +15,10 @@ client = OpenAI(
 
 
 # Function to call the real model
-def call_model(prompt):
+def call_model(keywords, category, count, tone):
     try:
-        # Construct model input from prompt
+        # Combine all keywords into a single instruction
+        combined_keywords = ", ".join(keywords)
         response = client.chat.completions.create(
             messages=[
                 {
@@ -26,8 +28,8 @@ def call_model(prompt):
                 {
                     "role": "user",
                     "content": (
-                        f"Generate {prompt['count']} unique and {prompt['tone']} business names "
-                        f"based on the keyword '{prompt['keyword']}' in the '{prompt['category']}' category."
+                        f"Generate {count} unique and {tone} business names "
+                        f"based on the combined keywords '{combined_keywords}' in the '{category}' category."
                     ),
                 },
             ],
@@ -36,6 +38,7 @@ def call_model(prompt):
             max_tokens=150,
             top_p=1,
         )
+        # Extract generated names assuming a newline-separated response
         return response.choices[0].message.content.split("\n")
     except Exception as e:
         return [f"Error: {str(e)}"]
@@ -46,8 +49,9 @@ st.title("🚀 NameWiz")
 st.subheader("Generate creative names for your startup, business, or project!")
 
 # User inputs
-keyword = st.text_input(
-    "Enter a keyword:", help="Type a word to inspire your name (e.g., 'tech', 'food')."
+keywords_input = st.text_input(
+    "Enter one or more keywords (e.g., 'table fashion cats'):",
+    help="Type keywords separated by any non-alphanumeric symbol (e.g., 'table,fashion|cats').",
 )
 category = st.selectbox(
     "Select a category:",
@@ -70,23 +74,20 @@ tone = st.radio(
 
 # Generate button
 if st.button("Generate Names"):
-    if keyword:
-        # Construct the prompt
-        prompt = {
-            "keyword": keyword,
-            "category": category,
-            "count": count,
-            "tone": tone,
-        }
-
-        # Call the model
-        names = call_model(prompt)
-
-        # Display the result
-        st.markdown("### Generated Names:")
-        for idx, name in enumerate(names, 1):
-            # Remove any existing numbering or whitespace
-            clean_name = name.lstrip("0123456789. ").strip()
-            st.write(f"{idx}. {clean_name}")
+    if keywords_input:
+        # Split keywords by any non-alphanumeric character
+        keywords = re.split(r"[^a-zA-Z0-9]+", keywords_input)
+        # Remove any empty keywords
+        keywords = [kw.strip() for kw in keywords if kw.strip()]
+        if keywords:
+            # Generate names based on all keywords combined
+            st.markdown("### Generated Names:")
+            names = call_model(keywords, category, count, tone)
+            for idx, name in enumerate(names, 1):
+                # Clean up any numbering or whitespace
+                clean_name = name.lstrip("0123456789. ").strip()
+                st.write(f"{idx}. {clean_name}")
+        else:
+            st.error("Please enter at least one valid keyword.")
     else:
-        st.error("Please enter a keyword.")
+        st.error("Please enter one or more keywords.")

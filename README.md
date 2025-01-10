@@ -1,6 +1,6 @@
 # NameWiz - Creative Name Generator
 
-🚀 **NameWiz** is a simple and fun Streamlit app to generate creative names for your startup, business, or project. Follow the steps below to set up the project using `pyenv` and get started.
+🚀 **NameWiz** is a simple and fun Streamlit app to generate creative names for your startup, business, or project.
 
 ---
 
@@ -33,51 +33,61 @@ cd namewiz
   <summary>Click here to see Python environment setup</summary>
 
   #### Install `pyenv` and `pyenv-virtualenv`
-  
+
   Make sure you have Homebrew installed, then run the following commands to install `pyenv` and `pyenv-virtualenv`:
-  
+
   ```bash
   brew install pyenv
   brew install pyenv-virtualenv
   ```
-  
+
   #### Install Python
-  
+
   Use `pyenv` to install the desired version of Python. In this project, we are using Python 3.12.0:
-  
+
   ```bash
   pyenv install 3.12.0
   ```
-  
+
   #### Create a Virtual Environment
-  
+
   Create a virtual environment named `namewiz` using `pyenv-virtualenv`:
-  
+
   ```bash
   pyenv virtualenv 3.12.0 namewiz
   ```
-  
+
   #### Connect the Virtual Environment to the Project Directory
-  
+
   Set the local Python version to the virtual environment you just created:
-  
+
   ```bash
   pyenv local namewiz
   ```
-</details>
-
-**2. Installing Dependencies**
-
-Install the required dependencies using pip:
+  #### Install the required dependencies
 
   ```bash
   pip install -r requirements.txt
   ```
 
-**3. Running the App**
+  #### Install and configure pre-commit hooks
+
+  ```bash
+  pip install pre-commit
+  pre-commit install
+  ```
+
+  #### Run pre-commit hooks manually (optional)
+
+  ```bash
+  pre-commit run --all-files
+  ```
+
+</details>
+
+**2. Running the App**
 To start the Streamlit app, run the following command:
 
   ```bash
   streamlit run app.py
   ```
-

@@ -77,6 +77,22 @@ categories_with_contexts = {
 st.title("🚀 NameWiz")
 st.subheader("Generate creative names for your startup, business, or project!")
 
+# Top 10 languages (ISO 639-1 codes and names)
+languages = {
+    "English": "en",
+    "Spanish": "es",
+    "French": "fr",
+    "German": "de",
+    "Chinese (Simplified)": "zh",
+    "Japanese": "ja",
+    "Korean": "ko",
+    "Portuguese": "pt",
+    "Italian": "it",
+    "Hindi": "hi",
+    "Polish": "pl",
+    "Dutch": "nl",
+}
+
 # User inputs
 keywords_input = st.text_input(
     "Enter one or more keywords (e.g., 'table fashion cats'):",
@@ -100,6 +116,11 @@ tone = st.radio(
     ["Professional", "Fun/Playful", "Modern/Minimalist", "Luxury/High-End"],
     help="Pick a tone to match your brand personality.",
 )
+language = st.selectbox(
+    "Select a language:",
+    list(languages.keys()),
+    help="Choose the language for the generated names.",
+)
 
 # Generate button
 if st.button("Generate Names"):
@@ -118,11 +139,17 @@ if st.button("Generate Names"):
             keywords = keywords[:max_keywords]
 
         if keywords:
-            context = categories_with_contexts[
-                category
-            ]  # Automatically fetch context based on category
-            with st.spinner("Generating names..."):  # Add a loading spinner
-                names = call_model(keywords, category, count, tone, context)
+            context = categories_with_contexts[category]
+            selected_language = languages[language]  # Fetch ISO code for the language
+            with st.spinner("Generating names..."):
+                # Include language in the prompt
+                names = call_model(
+                    keywords,
+                    category,
+                    count,
+                    tone,
+                    f"{context} Generate names in {language} ({selected_language}).",
+                )
                 st.markdown("### Generated Names:")
                 for idx, name in enumerate(names, 1):
                     # Clean up any numbering or whitespace

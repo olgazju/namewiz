@@ -67,6 +67,8 @@
   - Consistent data for UI testing
 - `npm run preview`: Production build with CF Worker proxy .env file is required
 
+Note for windows users: `npm run dev` will fails, you need to run `set NODE_ENV=development ; npx vite`
+
 ## API Flow
 
 React App ➜ CF Worker ➜ Origin API ➜ CF Worker ➜ React App

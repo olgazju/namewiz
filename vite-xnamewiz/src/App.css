@@ -1,0 +1,262 @@
+/* App.css */
+:root {
+  /* Base theme variables */
+  --text-title: rgb(255, 75, 75);
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --background-primary: #ffffff;
+  --background-secondary: #f9f9f9;
+  --accent-color: #646cff;
+  --accent-hover: #747bff;
+  --border-color: #e0e0e0;
+  --button-bg: rgba(255, 255, 255, 0.87);
+  --button-text: #213547;
+  --card-bg: rgba(255, 255, 255, 0.87);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --description-bg: #ccdbfd;
+  --icon-border: #000000;
+  --indicator-inactive: #ccdbfd;
+  --indicator-active: #000000;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-title: rgb(255, 75, 75);
+    --text-primary: rgba(255, 255, 255, 0.87);
+    --text-secondary: #a0a0a0;
+    --background-primary: #242424;
+    --background-secondary: #1a1a1a;
+    --accent-color: #646cff;
+    --accent-hover: #747bff;
+    --border-color: #333333;
+    --button-bg: #2d2d2d;
+    --button-text: #ffffff;
+    --card-bg: #3b3b3b;
+    --card-border: rgba(255, 255, 255, 0.1);
+    --description-bg: #3b3b3b;
+    --icon-border: rgba(255, 255, 255, 0.87);
+    --indicator-inactive: #2d2d2d;
+    --indicator-active: rgba(255, 255, 255, 0.87);
+    --shadow: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* scrolling to last li elemenent */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: flex-start;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+#root {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.8em;
+  line-height: 0.5rem;
+  justify-content: center;
+  justify-self: center;
+  color: var(--text-primary);
+  text-align: center;
+  margin: 2rem 0 1.5rem 1rem;
+}
+
+h3 {
+  justify-self: center;
+  justify-content: center;
+  color: var(--text-primary);
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+}
+
+h4 {
+  font-size: 1.1em;
+  line-height: 1.5rem;
+  justify-content: center;
+  justify-self: center;
+  color: var(--text-primary);
+  margin: 1.5rem 0 0.5rem 0rem;
+}
+
+/* Button styles */
+button {
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.1em 0.3em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Form element styles */
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  height: 35px;
+}
+
+/* Divider style */
+.divider {
+  border: 1px solid var(--border-color);
+  margin: 1rem 0;
+}
+
+ul {
+  min-width: 100%;
+  margin-left: 0%;
+  padding-left: 0%;
+  margin-right: auto;
+  list-style-type: none;
+  justify-items: center;
+  display: inline-table;
+}
+
+li:hover .openShareLink {
+  visibility: visible;
+  max-width: 3em;
+  max-height: 3em;
+}
+
+/* Container styles */
+.main-container {
+  max-width: 67.77%;
+  min-width: 67.77%;
+  margin: 0 auto;
+  word-wrap: break-word;
+  padding: 0.2em 0; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* Generated names styles */
+.generated-names-list {
+  padding-left: 1em;
+}
+
+.generated-names-item {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 1.5em;
+  border-bottom: 1px solid var(--border-color);
+  margin-left: 0.5rem;
+  gap: 1em;
+}
+
+/* Share link styles */
+.openShareLink {
+  visibility: hidden;
+  max-width: 3em;
+  max-height: 3em;
+  margin-left: 0.5em;
+}
+
+.share-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.openShareLink img {
+  width: 2.5em;
+  height: 2.5em;
+  cursor: pointer;
+}
+
+/* Image preview styles */
+.image-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0 1rem 0;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 200px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .main-container {
+    max-width: 90%;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+} /* <-- Added closing brace here */
+
+@media (min-width: 1200px) {
+  #root {
+    width: 1200px;
+    min-width: 1200px;
+  }
+}
+
+/* Accessibility: Reduce motion if user prefers , disable smooth scrolling for users who prefer reduced motion*/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Optional: Add focus styles for better accessibility */
+:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Theme toggle button (if you want to add manual theme switching) */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--button-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1000;
+}

@@ -1,0 +1,60 @@
+.app-footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: var(--background-secondary);
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Update media query to handle smaller screens */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    overflow-x: auto;
+    /* Smooth scrolling on touch devices */
+    -webkit-overflow-scrolling: touch;
+    /* Hide scrollbar in Firefox */
+    scrollbar-width: none;
+    /* Add padding to accommodate scrollbar */
+    padding-bottom: 12px;
+  }
+
+  /* Hide scrollbar in Chrome/Safari */
+  .stats-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Add space for better touch scrolling */
+  .footer-content {
+    padding: 0 1rem;
+  }
+}

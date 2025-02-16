@@ -1,0 +1,79 @@
+.carousel-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Update width to match main-container */
+  width: 100%;
+  max-width: 100%;
+  padding: 0.5rem;
+  margin: 0 auto;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px var(--shadow);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-button {
+  position: absolute;
+  background: var(--button-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: var(--button-hover);
+  transform: scale(1.1);
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.indicators {
+  position: absolute;
+  bottom: -20px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--indicator-inactive);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.active-indicator {
+  background-color: var(--indicator-active);
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 100%;
+    padding: 0.5rem;
+  }
+}
